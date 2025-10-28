@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Waste Segregation Guide</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Waste Segregation Guide</h1>
+        <div class="search-section">
+            <input type="text" placeholder="Search" id="searchInput" />
+            <button class="btn search-btn">Search</button>
+        </div>
+        <div id="searchResult"></div>
+        <div class="action-buttons">
+            <button class="btn add-btn" onclick="location.href='add-item.html'">Add</button>
+            <button class="btn delete-btn" onclick="location.href='delete-item.html'">Delete</button>
+        </div>
+        <p class="instruction">Please enter to item to search.<br />Try: banana peel, plastic, paper cup...</p>
+        <div class="bins">
+            <div class="bin">
+                <img src="images/biodegradable.jpeg" alt="Biodegradable" />
+                <p><em>Biodegradable</em></p>
+            </div>
+            <div class="bin">
+                <img src="images/recyclable.jpeg" alt="Recyclable" />
+                <p><em>Recyclable</em></p>
+            </div>
+            <div class="bin">
+                <img src="images/non recyclable.jpeg" alt="Non-recyclable" />
+                <p><em>Non-recyclable</em></p>
+            </div>
+        </div>
+        <div id="searchResult"></div>
+        <p class="fact">Did you know? Recycling 1 plastic bottle saves enough energy to power a 60W bulb for 3 hours!</p>
+    </div>
+    <script>
+        const searchBtn = document.querySelector('.search-btn');
+        const searchInput = document.getElementById('searchInput');
+        const searchResult = document.getElementById('searchResult');
+
+        searchBtn.addEventListener('click', async () => {
+            const query = searchInput.value.trim();
+            if (!query) return;
+
+            try {
+                const response = await fetch('/api/items/search?query=' + encodeURIComponent(query));
+                if (response.ok) {
+                    const items = await response.json();
+                    console.log('Items found:', items.length);
+                    if (items.length > 0) {
+                        // Open new page with item details for the first item
+                        const item = items[0];
+                        const url = `item-detail.html?item=${encodeURIComponent(item.itemName)}&category=${encodeURIComponent(item.category)}`;
+                        console.log('Opening new page:', url);
+                        alert('Navigating to item detail for ' + item.itemName);
+                        window.location.href = url; // Navigate to the page in the same tab
+                    } else {
+                        searchResult.textContent = 'No items found';
+                    }
+                } else {
+                    searchResult.textContent = 'No items found';
+                }
+            } catch (error) {
+                searchResult.textContent = 'Error: ' + error.message;
+            }
+        });
+    </script>
+</body>
+</html>

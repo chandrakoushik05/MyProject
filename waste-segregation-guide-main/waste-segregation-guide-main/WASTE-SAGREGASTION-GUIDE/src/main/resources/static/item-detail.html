@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Item Detail - Waste Segregation Guide</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        #binImage {
+            width: 200px;
+            height: 200px;
+        }
+        #itemName {
+            font-size: 34px;
+        }
+        #category {
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="itemName">Item Detail</h1>
+        <p id="category">Category: </p>
+        <div class="bin-detail">
+            <img id="binImage" src="" alt="Bin" />
+        </div>
+        <button class="btn" onclick="window.location.href='index.html'">Close</button>
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const item = urlParams.get('item');
+        const category = urlParams.get('category');
+
+        if (item && category) {
+            document.getElementById('itemName').textContent = 'Item: ' + item;
+            document.getElementById('category').textContent = 'Category: ' + category;
+            const imageName = category.toLowerCase().replace('-', ' ') + '.jpeg';
+            document.getElementById('binImage').src = 'images/' + imageName;
+        } else {
+            document.getElementById('itemName').textContent = 'Item not found';
+        }
+    </script>
+</body>
+</html>

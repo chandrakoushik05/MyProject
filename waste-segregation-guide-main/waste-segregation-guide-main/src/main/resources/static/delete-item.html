@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Delete Item - Waste Segregation Guide</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Delete Item</h1>
+        <form id="deleteItemForm">
+            <label for="itemName">Item Name:</label><br />
+            <input type="text" id="itemName" name="itemName" required /><br /><br />
+            <button type="submit" class="btn">Delete</button>
+        </form>
+        <p id="responseMessage"></p>
+    </div>
+    <script>
+        const form = document.getElementById('deleteItemForm');
+        const responseMessage = document.getElementById('responseMessage');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const itemName = document.getElementById('itemName').value;
+
+            try {
+                const response = await fetch('/api/items/delete/' + encodeURIComponent(itemName), {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    responseMessage.textContent = 'Item deleted successfully!';
+                    form.reset();
+                } else {
+                    const errorData = await response.text();
+                    responseMessage.textContent = 'Error: ' + errorData;
+                }
+            } catch (error) {
+                responseMessage.textContent = 'Error: ' + error.message;
+            }
+        });
+    </script>
+</body>
+</html>

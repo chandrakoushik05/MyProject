@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 90px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    font-size: 75px;
+    color: lab(12.13% 28.79 2);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.search-section {
+    border-start-end-radius: 100px;
+   border-left-width: 100px;
+    margin-bottom: 60px;
+}
+
+input[type="text"] {
+    padding: 12px 18px;
+    width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 18px;
+}
+
+.btn {
+    background-color: #1a4d8f;
+    color: white;
+    border: none;
+    padding: 18px 20px;
+    margin: 0 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #145288;
+}
+
+.action-buttons {
+    margin-bottom: 10px;
+}
+
+.delete-btn {
+    padding: 18px 60px;
+    font-size: 18px;
+}
+
+.add-btn {
+    padding: 18px 60px;
+    font-size: 18px;
+}
+
+.instruction {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.bins {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.bin img {
+    width:200px;
+    height: 200px;
+    display: block;
+    margin: 0 auto 8px;
+}
+
+.bin p {
+    font-size: 30px;
+    font-style: italic;
+    font-weight: bold;
+    color: #444;
+}
+
+.fact {
+    
+    font-style: italic;
+    color: #c20cf0;
+    font-size: 30px;
+}

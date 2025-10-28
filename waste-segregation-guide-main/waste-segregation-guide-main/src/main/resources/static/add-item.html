@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Add New Item - Waste Segregation Guide</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Add New Item</h1>
+        <form id="addItemForm">
+            <label for="itemName">Item Name:</label><br />
+            <input type="text" id="itemName" name="itemName" required /><br /><br />
+
+            <label for="category">Category:</label><br />
+            <select id="category" name="category" required>
+                <option value="">Select category</option>
+                <option value="biodegradable">Biodegradable</option>
+                <option value="recyclable">Recyclable</option>
+                <option value="non-recyclable">Non-recyclable</option>
+            </select><br /><br />
+
+            <label for="advantages">Advantages:</label><br />
+            <textarea id="advantages" name="advantages" rows="4" cols="40" required></textarea><br /><br />
+
+            <button type="submit" class="btn">Submit</button>
+        </form>
+        <p id="responseMessage"></p>
+    </div>
+    <script>
+        const form = document.getElementById('addItemForm');
+        const responseMessage = document.getElementById('responseMessage');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const itemName = document.getElementById('itemName').value;
+            const category = document.getElementById('category').value;
+            const advantages = document.getElementById('advantages').value;
+
+            const data = { itemName, category, advantages };
+
+            try {
+                const response = await fetch('/api/items/add', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    responseMessage.textContent = 'Item added successfully!';
+                    form.reset();
+                } else {
+                    const errorData = await response.text();
+                    responseMessage.textContent = 'Error: ' + errorData;
+                }
+            } catch (error) {
+                responseMessage.textContent = 'Error: ' + error.message;
+            }
+        });
+    </script>
+</body>
+</html>

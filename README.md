@@ -58,6 +58,13 @@ Here’s how to use the application:
 3. Step 3: – Give some advantages for that item rovided
 4. Step 4: – Now search for the item which is stored in database for getting the result of that item
 
+**Screenshots**
+
+1.<img width="1920" height="1080" alt="Screenshot (207)" src="https://github.com/user-attachments/assets/c9b2b8f2-82aa-49be-99fe-b01b6e857c88" />
+2.<img width="1089" height="794" alt="Screenshot 2025-10-28 111326" src="https://github.com/user-attachments/assets/3bf1d145-1e6c-4183-ad14-0887ce540636" />
+3.<img width="658" height="373" alt="Screenshot 2025-10-28 111448" src="https://github.com/user-attachments/assets/85690cf2-4846-4963-b312-27d74b5de757" />
+4.<img width="624" height="643" alt="Screenshot 2025-10-28 111602" src="https://github.com/user-attachments/assets/e0abed3c-86bc-4e07-9aed-be528e001171" />
+
 **Contributing**
 
 Contributions are always welcome!

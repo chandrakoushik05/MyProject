@@ -47,15 +47,16 @@ cd MyProject
 Explain how to launch or run the project locally. For example:
 java -jar target/myproject.jar  
 npm start
-Then open http://localhost:8080 in your browser (replace with correct port)
+Then open **http://localhost:8080** in your browser (replace with correct port)
 (Add any configuration, environment variables setup, or database connection details if relevant.)
 
 **Usage**
 
 Here’s how to use the application:
-1. Step 1: – do this
-2. Step 2: – do that
-3. Step 3: – overview of the workflow
+1. Step 1: – Add any items by clicking add
+2. Step 2: – Select the category for which it belongs to
+3. Step 3: – Give some advantages for that item rovided
+4. Step 4: – Now search for the item which is stored in database for getting the result of that item
 
 **Contributing**
 

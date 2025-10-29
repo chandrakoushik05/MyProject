@@ -41,15 +41,11 @@ git clone https://github.com/chandrakoushik05/MyProject.git
 cd MyProject
 
 3. Install dependencies (if any):
-# e.g., mvn clean install  
-# or npm install
 
 **Running the Project**
 
 Explain how to launch or run the project locally. For example:
-# if it’s a Java application  
 java -jar target/myproject.jar  
-# or if it’s a web app  
 npm start
 Then open http://localhost:8080 in your browser (replace with correct port)
 (Add any configuration, environment variables setup, or database connection details if relevant.)
